@@ -1,12 +1,26 @@
-# React + Vite
+# React Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple calculator component built with React. It supports basic arithmetic operations and handles input expressions with validation.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Displays current input expression and calculated answer separately.
+- Supports numbers (0-9), decimal points, and operators (`+`, `-`, `*`, `/`, `%`).
+- Prevents multiple decimals in the same number.
+- Prevents consecutive operators (replaces the last operator if user inputs another).
+- Clear (AC) and Delete (DEL) functions to reset or edit the expression.
+- Handles errors gracefully by displaying "Error" when evaluation fails.
 
-## Expanding the ESLint configuration
+## Component Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `expression`: Holds the current mathematical expression as a string.
+- `answer`: Holds the result of evaluating the expression.
+- `handleClick`: Handles button clicks, updating expression or answer based on input type.
+
+## Usage
+
+This component is designed to be part of a React app. It uses data attributes (`data-role`, `data-value`) on buttons to identify the type and value of inputs.
+
+---
+
+Built for React tutorial practice and UI experimentation.
