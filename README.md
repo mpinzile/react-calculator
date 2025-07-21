@@ -1,5 +1,7 @@
 # React Calculator
 
+![React Calculator Preview](https://react-calculator-mu-dusky.vercel.app/preview.png)
+
 A simple calculator component built with React. It supports basic arithmetic operations and handles input expressions with validation.
 
 ## Features
@@ -23,4 +25,4 @@ This component is designed to be part of a React app. It uses data attributes (`
 
 ---
 
-Built for React tutorial practice and UI experimentation.
+> **Built for React tutorial practice and UI experimentation.**
