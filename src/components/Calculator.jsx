@@ -23,6 +23,13 @@ export default function Calculator() {
                 setAnswer('Error');
             }
         } else if (role === 'operator' || role === 'number') {
+            // Prevent multiple decimals in the same number
+            if (value === '.') {
+                const parts = expression.split(/[+\-*/%]/);
+                const lastPart = parts[parts.length - 1];
+                if (lastPart.includes('.')) return;
+                if (lastPart === '') return setExpression(prev => prev + '0.');
+            }
             setExpression(prev => prev + value);
         }
 
