@@ -43,6 +43,14 @@ export default function Calculator() {
                 if (expression === '') return;
             }
 
+            // Prevent multiple leading zeros
+            const parts = expression.split(/[+\-*/%]/);
+            const lastPart = parts[parts.length - 1];
+            if (role === 'number') {
+                if (lastPart === '' && value === '0') return;
+                if (lastPart === '0' && value !== '.') return;
+            }
+
             setExpression(prev => prev + value);
         }
     };
@@ -50,7 +58,7 @@ export default function Calculator() {
     return (
         <div className="calculator">
             <div className="display">
-                <div className="input-screen" data-role="input">{expression | '0'}</div>
+                <div className="input-screen" data-role="input">{expression || '0'}</div>
                 <div className="answer-screen" data-role="output">{answer}</div>
             </div>
 
