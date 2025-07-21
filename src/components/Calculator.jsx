@@ -30,18 +30,20 @@ export default function Calculator() {
                 if (lastPart.includes('.')) return;
                 if (lastPart === '') return setExpression(prev => prev + '0.');
             }
+
+            // Prevent consecutive operators
+            if (role === 'operator') {
+                const lastChar = expression.slice(-1);
+                if (/[+\-*/%]/.test(lastChar)) {
+                    return setExpression(prev => prev.slice(0, -1) + value);
+                }
+                if (expression === '' && value === '-') {
+                    return setExpression(value);
+                }
+                if (expression === '') return;
+            }
+
             setExpression(prev => prev + value);
-        }
-        // Prevent consecutive operators
-        if (role === 'operator') {
-            const lastChar = expression.slice(-1);
-            if (/[+\-*/%]/.test(lastChar)) {
-                return setExpression(prev => prev.slice(0, -1) + value);
-            }
-            if (expression === '' && value === '-') {
-                return setExpression(value);
-            }
-            if (expression === '') return;
         }
     };
 
